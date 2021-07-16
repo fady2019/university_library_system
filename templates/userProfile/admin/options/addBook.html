@@ -1,0 +1,25 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles/common/bookForm.css' %}" />
+
+<!--  -->
+
+{% include 'common parts/prevPage.html' with prevPageLink=prevPageLink %}
+
+<div class="center">
+  <h2>Add book</h2>
+
+  <form id="bookForm" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <ul id="errorList"></ul>
+
+    <!--  -->
+    {% include 'common parts/bookFields.html' with form=form %}
+
+    <!--  -->
+    <input type="submit" value="Add" />
+  </form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{% static 'scripts/addBook.js' %}"></script>
